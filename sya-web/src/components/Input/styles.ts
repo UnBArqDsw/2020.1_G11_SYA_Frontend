@@ -69,7 +69,7 @@ export const Error = styled(Tooltip)`
 
   span {
     background: #ff0000;
-    color: #fff;
+    color: #fcfcfc;
 
     &::before {
       border-color: #ff0000 transparent;
