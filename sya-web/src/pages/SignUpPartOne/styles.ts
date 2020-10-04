@@ -11,6 +11,12 @@ export const Container = styled.div`
   align-items: stretch;
 `;
 
+export const Background = styled.div`
+  flex: 1;
+  background: url(${signUpBackground}) no-repeat center;
+  background-size: cover;
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -18,11 +24,11 @@ export const Content = styled.div`
 
   place-content: center;
   width: 100%;
-  max-width: 700px;
+  max-width: 800px;
 
   form {
     margin: 80px 0;
-    width: 340px;
+    width: 400px;
     text-align: center;
 
     h1 {
@@ -68,8 +74,17 @@ export const Content = styled.div`
   }
 `;
 
-export const Background = styled.div`
-  flex: 1;
-  background: url(${signUpBackground}) no-repeat center;
-  background-size: cover;
+export const WrapPassword = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 400px;
+
+  input {
+    width: 90px;
+  }
+
+  #passwordSepararion{
+    width: 65px;
+  }
 `;

@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { Form } from '@unform/web';
 
-import { FiLogIn, FiMail, FiLock } from 'react-icons/fi';
-import { Container, Content, Background } from './styles';
+import { FiSkipBack, FiUser, FiMail, FiLock } from 'react-icons/fi';
+import { Container, Content, Background, WrapPassword } from './styles';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -23,21 +23,30 @@ const SignUpPartOne: React.FC = () => {
         <Form onSubmit={handleSubmit}>
           <h1>Logar</h1>
 
-          <Input name="email" icon={FiMail} placeholder="E-mail" />
-          <Input
-            name="password"
-            icon={FiLock}
-            type="password"
-            placeholder="Senha"
-          />
-          <a href="forgot">Esqueci minha senha</a>
+            <Input name="name" icon={FiUser} placeholder="Nome" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-          <Button type="submit">Entrar</Button>
+            <WrapPassword>
+              <Input
+                name="password"
+                icon={FiLock}
+                type="password"
+                placeholder="Senha"
+              />
+              <div id="passwordSepararion"></div>
+              <Input
+                name="confirm_password"
+                icon={FiLock}
+                type="password"
+                placeholder="Confirmar Senha"
+              />
+            </WrapPassword>
+            <Button type="submit">Entrar</Button>
         </Form>
 
         <a href="login">
-          <FiLogIn />
-          Criar conta
+          <FiSkipBack />
+          Voltar Para Login
         </a>
       </Content>
     </Container>
