@@ -41,7 +41,7 @@ const SignUpPartOne: React.FC = () => {
                 placeholder="Confirmar Senha"
               />
             </WrapPassword>
-            <Button type="submit">Entrar</Button>
+            <Button type="submit">Continuar</Button>
         </Form>
 
         <a href="login">
