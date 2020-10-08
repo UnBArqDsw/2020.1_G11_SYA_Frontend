@@ -1,14 +1,17 @@
 import React from 'react';
-import {
-  FiArrowLeft,
-  FiPower,
-  FiCamera,
-  FiMail,
-  FiUser,
-  FiLock,
-} from 'react-icons/fi';
+import { FiArrowLeft, FiPower, FiCamera, FiMail, FiUser } from 'react-icons/fi';
+import { AiFillSchedule, AiOutlineShopping, AiFillStar } from 'react-icons/ai';
 import { Form } from '@unform/web';
-import { Container, Content, Photo, AvatarInput, Break } from './styles';
+import { backgrounds } from 'polished';
+import {
+  Container,
+  Content,
+  Photo,
+  AvatarInput,
+  Break,
+  FirstColumn,
+  SecondColumn,
+} from './styles';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
@@ -37,37 +40,39 @@ const Profile: React.FC = () => {
       <Break>
         <Content>
           <Form onSubmit={() => console.log('Oi')}>
-            <h1>Meu Perfil</h1>
+            <FirstColumn>
+              <h1>Meu Perfil</h1>
 
-            <Input name="name" icon={FiUser} placeholder="Nome" />
+              <Input name="name" icon={FiUser} placeholder="Nome" />
 
-            <Input name="email" icon={FiMail} placeholder="E-mail" />
+              <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-            <Input
-              name="changeEmail"
-              icon={FiMail}
-              placeholder="Trocar e-mail"
-            />
+              <Input
+                name="changeEmail"
+                icon={FiMail}
+                placeholder="Trocar e-mail"
+              />
+            </FirstColumn>
 
-            <Button type="submit">Confirmar mudanças</Button>
+            <SecondColumn>
+              <Input name="cpf" icon={AiFillSchedule} placeholder="CPF" />
+
+              <Input
+                name="business_name"
+                icon={AiFillStar}
+                placeholder="Nome da empresa"
+              />
+
+              <Input
+                name="business_area"
+                icon={AiOutlineShopping}
+                placeholder="Área de atuação"
+              />
+            </SecondColumn>
           </Form>
-        </Content>
-        <Content>
-          <Form onSubmit={() => console.log('Oi')}>
-            <h1>Meu Perfil</h1>
-
-            <Input name="name" icon={FiUser} placeholder="Nome" />
-
-            <Input name="email" icon={FiMail} placeholder="E-mail" />
-
-            <Input
-              name="changeEmail"
-              icon={FiMail}
-              placeholder="Trocar e-mail"
-            />
-
-            <Button type="submit">Confirmar mudanças</Button>
-          </Form>
+          <Button style={{ width: '301px' }} type="submit">
+            Confirmar mudanças
+          </Button>
         </Content>
       </Break>
     </Container>
