@@ -2,7 +2,6 @@ import React from 'react';
 import { FiArrowLeft, FiPower, FiCamera, FiMail, FiUser } from 'react-icons/fi';
 import { AiFillSchedule, AiOutlineShopping, AiFillStar } from 'react-icons/ai';
 import { Form } from '@unform/web';
-import { backgrounds } from 'polished';
 import {
   Container,
   Content,
@@ -15,6 +14,7 @@ import {
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import WeekCard from '../../components/WeekCard';
 
 const Profile: React.FC = () => {
   return (
@@ -52,6 +52,8 @@ const Profile: React.FC = () => {
                 icon={FiMail}
                 placeholder="Trocar e-mail"
               />
+              <h1>Dias de Funcionamento</h1>
+              <WeekCard />
             </FirstColumn>
 
             <SecondColumn>
