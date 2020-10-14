@@ -6,7 +6,7 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Day: React.FC<ButtonProps> = ({ children, ...rest }) => {
   return (
-    <Container type="button" {...rest}>
+    <Container style={{ background: "#141212" }} type="button" {...rest}>
       {children}
     </Container>
   );
