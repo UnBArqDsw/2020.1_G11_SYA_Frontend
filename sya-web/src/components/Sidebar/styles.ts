@@ -31,7 +31,7 @@ export const ProfileAvatar = styled.div`
     transition: all 0.2s;
   }
 
-  label {
+  a {
     position: absolute;
     width: 40px;
     height: 40px;
