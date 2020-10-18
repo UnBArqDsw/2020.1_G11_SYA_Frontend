@@ -1,48 +1,40 @@
 import React from 'react';
 
-
-import AppointmentLogo from '../../assets/appointment_logo.svg';
-import HourglassLogo from '../../assets/hourglass.svg';
-import WorkLogo from '../../assets/work.svg';
-import GroupLogo from '../../assets/group.svg';
-import { FiEdit3 } from 'react-icons/fi';
+import { FaSuitcase } from 'react-icons/fa';
+import { ImHourGlass, ImClock } from 'react-icons/im';
+import { FiUsers } from 'react-icons/fi';
 import { Container, Item } from './styles';
 
 const MenuItem: React.FC = () => {
   return (
     <Container>
-      <a href="#">
-        <Item>
-          <div>
-            <img src={AppointmentLogo} alt="Icon" />
-          </div>
-          <p>Agendamentos</p>
-        </Item>
-      </a>
-      <a href="#">
-        <Item>
-          <div>
-            <img src={HourglassLogo} alt="Icon" />
-          </div>
-          <p>Marcar Horário</p>
-        </Item>
-      </a>
-      <a href="#">
-        <Item>
-          <div>
-            <img src={WorkLogo} alt="Icon" />
-          </div>
-          <p>Serviços</p>
-        </Item>
-      </a>
-      <a href="#">
-        <Item>
-          <div>
-            <img src={GroupLogo} alt="Icon" />
-          </div>
-          <p>Funcionários</p>
-        </Item>
-      </a>
+      <Item>
+        <div>
+          <ImClock color="#FCFcfc" size={30} />
+        </div>
+        <p>Agendamentos</p>
+      </Item>
+
+      <Item>
+        <div>
+          <ImHourGlass color="#FCFcfc" size={30} />
+        </div>
+        <p>Marcar Horário</p>
+      </Item>
+
+      <Item>
+        <div>
+          <FaSuitcase color="#FCFcfc" size={30} />
+        </div>
+        <p>Serviços</p>
+      </Item>
+
+      <Item>
+        <div>
+          <FiUsers color="#FCFcfc" size={30} />
+        </div>
+        <p>Funcionários</p>
+      </Item>
     </Container>
   );
 };

@@ -1,51 +1,31 @@
 import React from 'react';
-// import LineBody from '../../components/LineBody';
+import { BsPlusCircle } from 'react-icons/bs';
 import Sidebar from '../../components/Sidebar';
 import PlusIcon from '../../assets/plusIcon.svg';
-import UserIcon from '../../assets/user.svg';
-import { Container, EmployeeItem, EmployeeList, Body, ButtonToNewEmployee, EmployeeNameAndService } from './styles';
+import EmployeeItem from '../../components/EmployeeItem';
+
+import {
+  Container,
+  EmployeeList,
+  Content,
+  ButtonToNewEmployee,
+} from './styles';
 
 const Employee: React.FC = () => {
   return (
     <Container>
       <Sidebar />
-      <Body>
+      <Content>
         <EmployeeList>
-          <EmployeeItem>
-            <label>
-              <img src={UserIcon} alt="Icon" />
-            </label>
-            <EmployeeNameAndService>
-              <p>Funcionário 1</p>
-              <p>Serviço 1</p>
-            </EmployeeNameAndService>
-          </EmployeeItem>
-          <EmployeeItem>
-            <label>
-              <img src={UserIcon} alt="Icon" />
-            </label>
-            <EmployeeNameAndService>
-              <p>Funcionário 2</p>
-              <p>Serviço 2</p>
-            </EmployeeNameAndService>
-          </EmployeeItem>
-          <EmployeeItem>
-            <label>
-              <img src={UserIcon} alt="Icon" />
-            </label>
-            <EmployeeNameAndService>
-              <p>Funcionário 3</p>
-              <p>Serviço 3</p>
-            </EmployeeNameAndService>
-          </EmployeeItem>
+          <EmployeeItem name="Daniel" work="Cabelereiro" />
+          <EmployeeItem name="Daniel" work="Cabelereiro" />
+          <EmployeeItem name="Daniel" work="Cabelereiro" />
         </EmployeeList>
+
         <ButtonToNewEmployee>
-          <img
-            src={ PlusIcon }
-            alt="New Employee"
-          />
+          <BsPlusCircle color="#fcfcfc" size={60} />
         </ButtonToNewEmployee>
-      </Body>
+      </Content>
     </Container>
   );
 };

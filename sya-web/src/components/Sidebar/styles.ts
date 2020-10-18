@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -8,26 +7,25 @@ export const Container = styled.div`
   min-width: 315px;
   width: 28%;
   margin: 25px;
-  border: 2px solid #fcfcfc;
+  border: 4px solid #fcfcfc;
   border-radius: 30px;
   overflow-y: hidden;
 `;
 
 export const ProfileAvatar = styled.div`
   position: relative;
-  display:flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-self: center;
   top: 74px;
-  width: 124px;
 
   #userProfileAvatar {
-    width: 124px;
-    height: 124px;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     margin: 0 auto;
-    border: 2px solid #fcfcfc;
+    border: 4px solid #fcfcfc;
     transition: all 0.2s;
   }
 
@@ -36,10 +34,10 @@ export const ProfileAvatar = styled.div`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 1px solid #fcfcfc;
+    border: 2px solid #fcfcfc;
     background: #141212;
-    right: 0;
-    bottom: 50px;
+    right: 25px;
+    bottom: 40px;
     cursor: pointer;
     transition: all 0.2s;
 
@@ -59,11 +57,10 @@ export const ProfileAvatar = styled.div`
 
     &:hover {
       background: #fcfcfc;
-      svg{
+      svg {
         color: #141212;
       }
     }
-
   }
 
   p {
