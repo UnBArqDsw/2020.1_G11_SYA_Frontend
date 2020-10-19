@@ -24,8 +24,9 @@ export const EmployeeList = styled.div`
 
 export const ButtonToNewEmployee = styled.div`
   position: fixed;
+  outline: none;
   cursor: pointer;
-  background: #141212;
+  background: transparent;
   bottom: 50px;
   right: 50px;
 `;

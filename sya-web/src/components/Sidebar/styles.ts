@@ -25,7 +25,7 @@ export const ProfileAvatar = styled.div`
     height: 160px;
     border-radius: 50%;
     margin: 0 auto;
-    border: 4px solid #fcfcfc;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     transition: all 0.2s;
   }
 

@@ -11,7 +11,7 @@ export const Container = styled.div`
   top: 0;
   left: 0;
   z-index: 15;
-  background: rgba(20,18,18, 0.3);
+  background: rgba(20, 18, 18, 0.3);
 `;
 
 export const Card = styled.div`
@@ -50,7 +50,7 @@ export const Content = styled.div`
       margin-top: 24px;
     }
 
-    input[type="text"] {
+    input[type='text'] {
       background: transparent;
       position: relative;
       color: #fcfcfc;
@@ -72,5 +72,3 @@ export const Content = styled.div`
     height: 60px;
   }
 `;
-
-

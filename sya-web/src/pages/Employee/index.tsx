@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import Sidebar from '../../components/Sidebar';
-import PlusIcon from '../../assets/plusIcon.svg';
 import EmployeeItem from '../../components/EmployeeItem';
 import EmployeeForm from '../../components/EmployeeForm';
 
@@ -13,6 +12,12 @@ import {
 } from './styles';
 
 const Employee: React.FC = () => {
+  const [isViewForm, setIsViewForm] = useState(false);
+
+  const handleViewForm = useCallback(() => {
+    setIsViewForm(true);
+  }, []);
+
   return (
     <Container>
       <Sidebar />
@@ -23,11 +28,11 @@ const Employee: React.FC = () => {
           <EmployeeItem name="Daniel" work="Cabelereiro" />
         </EmployeeList>
 
-        <EmployeeForm />
-
         <ButtonToNewEmployee>
-          <BsPlusCircle color="#fcfcfc" size={60} />
+          <BsPlusCircle color="#fcfcfc" size={60} onClick={handleViewForm} />
         </ButtonToNewEmployee>
+
+        {isViewForm && <EmployeeForm />}
       </Content>
     </Container>
   );
