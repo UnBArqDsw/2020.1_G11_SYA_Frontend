@@ -3,6 +3,7 @@ import { BsPlusCircle } from 'react-icons/bs';
 import Sidebar from '../../components/Sidebar';
 import PlusIcon from '../../assets/plusIcon.svg';
 import EmployeeItem from '../../components/EmployeeItem';
+import EmployeeForm from '../../components/EmployeeForm';
 
 import {
   Container,
@@ -21,6 +22,8 @@ const Employee: React.FC = () => {
           <EmployeeItem name="Daniel" work="Cabelereiro" />
           <EmployeeItem name="Daniel" work="Cabelereiro" />
         </EmployeeList>
+
+        <EmployeeForm />
 
         <ButtonToNewEmployee>
           <BsPlusCircle color="#fcfcfc" size={60} />

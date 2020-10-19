@@ -13,6 +13,7 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   display: flex;
+  position: relative;
   flex-direction: row;
   align-items: center;
 
@@ -21,6 +22,15 @@ export const Card = styled.div`
   padding: 16px;
   width: 100%;
   cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 70px;
+    background: #fcfcfc;
+    left: 0;
+  }
 
   span {
     border-radius: 50%;
@@ -38,6 +48,7 @@ export const Card = styled.div`
     margin-top: 10px;
     font-size: 18px;
   }
+
 `;
 
 export const Archive = styled.div`
