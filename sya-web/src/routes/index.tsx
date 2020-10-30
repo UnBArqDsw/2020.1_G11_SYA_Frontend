@@ -11,8 +11,8 @@ import Employee from '../pages/Employee';
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={SignIn} />
-    <Route path="/profile" component={Profile} />
-    <Route path="/employees" component={Employee} />
+    <Route path="/profile" component={Profile} isPrivate />
+    <Route path="/employees" component={Employee} isPrivate />
 
     {/* <Route path="/dashboard" component={Dashboard} isPrivate /> */}
   </Switch>
