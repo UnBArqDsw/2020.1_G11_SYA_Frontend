@@ -1,14 +1,20 @@
 import React, { useState, useCallback } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
+import { FiUser } from 'react-icons/fi';
+import { RiCloseCircleFill } from 'react-icons/ri';
 import Sidebar from '../../components/Sidebar';
 import EmployeeItem from '../../components/EmployeeItem';
-import EmployeeForm from '../../components/EmployeeForm';
+import ServiceCard from '../../components/WeekCard/Day';
+import Button from '../../components/Button';
 
 import {
   Container,
   EmployeeList,
   Content,
   ButtonToNewEmployee,
+  EmployeeForm,
+  Card,
+  ContentCard,
 } from './styles';
 
 const Employee: React.FC = () => {
@@ -16,6 +22,10 @@ const Employee: React.FC = () => {
 
   const handleViewForm = useCallback(() => {
     setIsViewForm(true);
+  }, []);
+
+  const handleUnviewForm = useCallback(() => {
+    setIsViewForm(false);
   }, []);
 
   return (
@@ -32,7 +42,46 @@ const Employee: React.FC = () => {
           <BsPlusCircle color="#fcfcfc" size={60} onClick={handleViewForm} />
         </ButtonToNewEmployee>
 
-        {isViewForm && <EmployeeForm />}
+        {isViewForm && (
+          <EmployeeForm>
+            <RiCloseCircleFill
+              color="#FCFCFC"
+              size={50}
+              onClick={handleUnviewForm}
+            />
+            <Card>
+              <ContentCard>
+                <div>
+                  <span>
+                    <FiUser color="#FCFcfc" size={50} />
+                  </span>
+                  <input
+                    type="text"
+                    value=""
+                    placeholder="Nome do Funcionário"
+                  />
+                </div>
+                <div>
+                  <p>Serviços Prestados</p>
+                </div>
+                <div>
+                  <ServiceCard name="service" value="Make">
+                    Make
+                  </ServiceCard>
+                  <ServiceCard name="service" value="Cabelo">
+                    Cabelo
+                  </ServiceCard>
+                  <ServiceCard name="service" value="Barba">
+                    Barba
+                  </ServiceCard>
+                </div>
+                <Button style={{ width: '100%' }} type="submit">
+                  Salvar
+                </Button>
+              </ContentCard>
+            </Card>
+          </EmployeeForm>
+        )}
       </Content>
     </Container>
   );
