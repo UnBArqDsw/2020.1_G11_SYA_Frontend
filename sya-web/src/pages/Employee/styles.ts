@@ -43,13 +43,6 @@ export const EmployeeForm = styled.div`
   left: 0;
   z-index: 15;
   background: rgba(20, 18, 18, 0.3);
-
-  > svg {
-    position: relative;
-    bottom: 210px;
-    left: 615px;
-    cursor: pointer;
-  }
 `;
 
 export const Card = styled.div`
@@ -64,6 +57,13 @@ export const Card = styled.div`
   border: 4px solid #fcfcfc;
   border-radius: 15px;
   overflow-y: auto;
+
+  > svg {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
 `;
 
 export const ContentCard = styled.div`

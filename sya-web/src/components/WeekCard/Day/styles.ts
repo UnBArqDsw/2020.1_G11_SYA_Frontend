@@ -21,3 +21,9 @@ export const Container = styled.button`
     background: ${shade(0.2, '#fcfcfc')} !important;
   }
 `;
+
+export const Input = styled.input`
+  visibility: hidden;
+  position: absolute;
+
+`;

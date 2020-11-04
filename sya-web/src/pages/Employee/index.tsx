@@ -44,12 +44,12 @@ const Employee: React.FC = () => {
 
         {isViewForm && (
           <EmployeeForm>
-            <RiCloseCircleFill
-              color="#FCFCFC"
-              size={50}
-              onClick={handleUnviewForm}
-            />
             <Card>
+              <RiCloseCircleFill
+                color="#FCFCFC"
+                size={33}
+                onClick={handleUnviewForm}
+              />
               <ContentCard>
                 <div>
                   <span>
@@ -57,7 +57,6 @@ const Employee: React.FC = () => {
                   </span>
                   <input
                     type="text"
-                    value=""
                     placeholder="Nome do Funcionário"
                   />
                 </div>
