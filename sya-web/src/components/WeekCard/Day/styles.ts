@@ -15,15 +15,13 @@ export const Container = styled.button`
   justify-content: center;
   align-items: center;
 
-
   transition: background-color 0.2s;
   &:hover {
     background: ${shade(0.2, '#fcfcfc')} !important;
   }
-`;
 
-export const Input = styled.input`
-  visibility: hidden;
-  position: absolute;
-
+  input {
+    visibility: hidden;
+    position: absolute;
+  }
 `;

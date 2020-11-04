@@ -1,11 +1,13 @@
 import React, { useState, useCallback } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import { FiUser } from 'react-icons/fi';
+import { Form } from '@unform/web';
 import { RiCloseCircleFill } from 'react-icons/ri';
 import Sidebar from '../../components/Sidebar';
 import EmployeeItem from '../../components/EmployeeItem';
-import ServiceCard from '../../components/WeekCard/Day';
+import EmployeeInput from '../../components/EmployeeForm/EmployeeInput';
 import Button from '../../components/Button';
+import CheckboxInput from '../../components/CheckboxInput';
 
 import {
   Container,
@@ -17,7 +19,17 @@ import {
   ContentCard,
 } from './styles';
 
+interface CheckboxOption {
+  id: string;
+  value: string;
+  label: string;
+}
+
 const Employee: React.FC = () => {
+  const checkboxOptions: CheckboxOption[] = [
+    { id: 'node', value: 'cabelo', label: 'Cabelo' },
+    { id: 'react', value: 'Make', label: 'Maquiagem' },
+  ];
   const [isViewForm, setIsViewForm] = useState(false);
 
   const handleViewForm = useCallback(() => {
@@ -26,6 +38,10 @@ const Employee: React.FC = () => {
 
   const handleUnviewForm = useCallback(() => {
     setIsViewForm(false);
+  }, []);
+
+  const handleSubmit = useCallback((data) => {
+    console.log(data);
   }, []);
 
   return (
@@ -50,34 +66,31 @@ const Employee: React.FC = () => {
                 size={33}
                 onClick={handleUnviewForm}
               />
-              <ContentCard>
-                <div>
-                  <span>
-                    <FiUser color="#FCFcfc" size={50} />
-                  </span>
-                  <input
-                    type="text"
-                    placeholder="Nome do Funcionário"
-                  />
-                </div>
-                <div>
-                  <p>Serviços Prestados</p>
-                </div>
-                <div>
-                  <ServiceCard name="service" value="Make">
-                    Make
-                  </ServiceCard>
-                  <ServiceCard name="service" value="Cabelo">
-                    Cabelo
-                  </ServiceCard>
-                  <ServiceCard name="service" value="Barba">
-                    Barba
-                  </ServiceCard>
-                </div>
-                <Button style={{ width: '100%' }} type="submit">
-                  Salvar
-                </Button>
-              </ContentCard>
+              <Form
+                onSubmit={handleSubmit}
+                initialData={{ checkbox: ['node'] }}
+              >
+                <ContentCard>
+                  <div>
+                    <span>
+                      <FiUser color="#FCFcfc" size={50} />
+                    </span>
+                    <EmployeeInput
+                      name="name_employee"
+                      placeholder="Nome do Funcionário"
+                    />
+                  </div>
+                  <div>
+                    <p>Serviços Prestados</p>
+                  </div>
+                  <div>
+                    <CheckboxInput name="checkbox" options={checkboxOptions} />
+                  </div>
+                  <Button style={{ width: '100%' }} type="submit">
+                    Salvar
+                  </Button>
+                </ContentCard>
+              </Form>
             </Card>
           </EmployeeForm>
         )}
