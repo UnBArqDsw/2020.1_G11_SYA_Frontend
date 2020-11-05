@@ -75,7 +75,7 @@ export const ContentCard = styled.div`
     padding: 0 8px;
   }
 
-  div {
+  > div {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -83,10 +83,11 @@ export const ContentCard = styled.div`
     p {
       font-size: 22px;
     }
+  }
 
-    &:not(:first-child) {
-      margin-top: 24px;
-    }
+  div {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 
   svg {
@@ -96,4 +97,8 @@ export const ContentCard = styled.div`
     width: 60px;
     height: 60px;
   }
+`;
+
+export const Check = styled.div`
+  display: flex;
 `;

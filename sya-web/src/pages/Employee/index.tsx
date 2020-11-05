@@ -17,6 +17,7 @@ import {
   EmployeeForm,
   Card,
   ContentCard,
+  Check,
 } from './styles';
 
 interface CheckboxOption {
@@ -27,8 +28,8 @@ interface CheckboxOption {
 
 const Employee: React.FC = () => {
   const checkboxOptions: CheckboxOption[] = [
-    { id: 'node', value: 'cabelo', label: 'Cabelo' },
-    { id: 'react', value: 'Make', label: 'Maquiagem' },
+    { id: '1', value: 'cabelo', label: 'Cabelo' },
+    { id: '2', value: 'make', label: 'Maquiagem' },
   ];
   const [isViewForm, setIsViewForm] = useState(false);
 
@@ -83,9 +84,16 @@ const Employee: React.FC = () => {
                   <div>
                     <p>Serviços Prestados</p>
                   </div>
-                  <div>
-                    <CheckboxInput name="checkbox" options={checkboxOptions} />
-                  </div>
+                  <Check>
+                    {checkboxOptions.map((option, index) => (
+                      <CheckboxInput
+                        key={option.id}
+                        index={index}
+                        name={`services.${option.value}`}
+                        option={option}
+                      />
+                    ))}
+                  </Check>
                   <Button style={{ width: '100%' }} type="submit">
                     Salvar
                   </Button>
