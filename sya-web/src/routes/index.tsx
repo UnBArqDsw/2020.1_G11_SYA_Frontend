@@ -5,7 +5,9 @@ import { Switch } from 'react-router-dom';
 import Route from './Route';
 
 import SignIn from '../pages/SignIn';
+
 import Profile from '../pages/Profile';
+
 
 const Routes: React.FC = () => (
   <Switch>
