@@ -9,20 +9,19 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
-  background: #363636;
+  background: #141212;
   border-radius: 10px;
   padding: 16px;
-  width: 100%;
+  width: 30%;
+
+  & + div {
+    margin-left: 15px;
+  }
 
   border: 2px solid #363636;
   color: #898989;
 
   display: flex;
-  align-items: center;
-
-  & + div {
-    margin-top: 30px;
-  }
 
   ${(props) =>
     props.isErrored &&
@@ -43,13 +42,12 @@ export const Container = styled.div<ContainerProps>`
       color: #fcfcfc;
     `}
 
-
-
   input {
     flex: 1;
     background: transparent;
     border: 0;
     color: #fcfcfc;
+    width: 30%;
 
     &::placeholder {
       color: #898989;
