@@ -1,13 +1,17 @@
 import React, { useState, useCallback } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import { FiAlertCircle } from 'react-icons/fi';
+import { FiDollarSign } from 'react-icons/fi';
 import { Form } from '@unform/web';
 import { RiCloseCircleFill } from 'react-icons/ri';
+import { ImHourGlass } from 'react-icons/im';
+import { GiTwoCoins } from 'react-icons/gi';
 import Sidebar from '../../components/Sidebar';
 import ServiceItem from '../../components/ServiceItem';
 import ServiceInput from '../../components/EmployeeForm/EmployeeInput';
 import Button from '../../components/Button';
 import CheckboxInput from '../../components/CheckboxInput';
+import InputTwo from '../../components/InputTwo';
 
 import {
   Container,
@@ -17,7 +21,7 @@ import {
   ServiceForm,
   Card,
   ContentCard,
-  Check,
+  ContentNewServiceInputs
 } from './styles';
 
 interface CheckboxOption {
@@ -46,9 +50,9 @@ const Service: React.FC = () => {
       <Sidebar />
       <Content>
         <ServiceList>
-          <ServiceItem name="Cabelo" />
-          <ServiceItem name="Barba" />
-          <ServiceItem name="Make" />
+          <ServiceItem name="Cabelo" duration="01:30" />
+          <ServiceItem name="Barba" duration="00:30" />
+          <ServiceItem name="Make" duration="01:30" />
         </ServiceList>
 
         <ButtonToNewService>
@@ -77,9 +81,28 @@ const Service: React.FC = () => {
                       placeholder="Nome do Serviço"
                     />
                   </div>
-                  <div>
-                    <p>Serviços Prestados</p>
-                  </div>
+                  <ContentNewServiceInputs>
+                    <div>
+                      <p>Duração</p>
+                      <br></br>
+                      <InputTwo
+                        name="duration"
+                        icon={ImHourGlass}
+                        placeholder="07:00"
+                        style={{ marginTop: '0px', width: '100%' }}
+                      />
+                    </div>
+                    <div>
+                      <p>Valor</p>
+                      <br></br>
+                      <InputTwo
+                        name="value"
+                        icon={GiTwoCoins}
+                        placeholder="120,00"
+                        style={{ marginTop: '0px', width: '100%' }}
+                      />
+                    </div>
+                  </ContentNewServiceInputs>
                   <Button style={{ width: '100%' }} type="submit">
                     Salvar
                   </Button>

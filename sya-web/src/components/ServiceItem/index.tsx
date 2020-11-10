@@ -3,14 +3,16 @@ import React from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
 
 import { RiArchiveFill } from 'react-icons/ri';
+import { ImHourGlass } from 'react-icons/im';
 
-import { Container, Archive, Card } from './styles';
+import { Container, Archive, Card, Duration } from './styles';
 
 interface ServiceProps {
   name: string;
+  duration: string;
 }
 
-const ServiceItem: React.FC<ServiceProps> = ({ name }) => {
+const ServiceItem: React.FC<ServiceProps> = ({ name, duration }) => {
   return (
     <Container>
       <Card>
@@ -20,9 +22,10 @@ const ServiceItem: React.FC<ServiceProps> = ({ name }) => {
         <div>
           <p>{ name }</p>
         </div>
-        <span>
-          <FiAlertCircle color="#FCFcfc" size={50} />
-        </span>
+        <Duration>
+          <ImHourGlass color="#FCFcfc" size={18} />
+          <p>{ duration }</p>
+        </Duration>
       </Card>
       <Archive>
         <span>

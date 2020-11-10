@@ -70,19 +70,23 @@ const Profile: React.FC = () => {
 
               <h1>Presto Serviço das: </h1>
               <div>
-                <InputTwo
-                  name="initial_hour"
-                  icon={ImHourGlass}
-                  placeholder="07:00"
-                  style={{ marginTop: '0px' }}
-                />
+                <div style={{ marginRight: '10%', width: '30% !important' }}>
+                  <InputTwo
+                    name="initial_hour"
+                    icon={ImHourGlass}
+                    placeholder="07:00"
+                    style={{ marginTop: '0px', width: '100%' }}
+                  />
+                </div>
                 <p>às</p>
-                <InputTwo
-                  name="finish_hour"
-                  icon={ImHourGlass}
-                  placeholder="18:00"
-                  style={{ marginTop: '0px' }}
-                />
+                <div style={{ marginLeft: '10%', width: '30% !important' }}>
+                  <InputTwo
+                    name="finish_hour"
+                    icon={ImHourGlass}
+                    placeholder="18:00"
+                    style={{ marginTop: '0px', width: '100%' }}
+                  />
+                </div>
               </div>
             </SecondColumn>
           </Form>

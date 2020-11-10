@@ -59,3 +59,24 @@ export const Archive = styled.div`
     border: 3px solid #fcfcfc;
   }
 `;
+
+export const Duration = styled.div`
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  right: 0;
+
+
+  p {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right:25px;
+    margin-left:15px;
+    padding-top: 2px;
+    font-size: 10px;
+  }
+
+  svg {
+    margin: auto;
+  }
+`;

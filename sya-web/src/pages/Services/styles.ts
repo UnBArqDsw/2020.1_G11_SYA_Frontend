@@ -49,7 +49,7 @@ export const Card = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 30%;
+  width: 40%;
   height: 40%;
   padding: 38px 50px 0px 50px;
   z-index: 16;
@@ -89,16 +89,27 @@ export const ContentCard = styled.div`
     margin-top: 10px;
     margin-bottom: 10px;
   }
-
-  svg {
-    border-radius: 50%;
-    padding: 5px;
-    border: 3px solid #fcfcfc;
-    width: 60px;
-    height: 60px;
-  }
 `;
 
-export const Check = styled.div`
+export const ContentNewServiceInputs = styled.div`
   display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+
+  div:first-child {
+    display: flex;
+  flex-direction: column;
+    width: 40%;
+  }
+
+  div:nth-child(2n) {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+
+  input {
+    width: 100%;
+  }
 `;
