@@ -7,12 +7,12 @@ import { ImHourGlass } from 'react-icons/im';
 
 import { Container, Archive, Card, Duration } from './styles';
 
-interface ServiceProps {
+interface WorkProps {
   name: string;
   duration: string;
 }
 
-const ServiceItem: React.FC<ServiceProps> = ({ name, duration }) => {
+const WorkItem: React.FC<WorkProps> = ({ name, duration }) => {
   return (
     <Container>
       <Card>
@@ -36,4 +36,4 @@ const ServiceItem: React.FC<ServiceProps> = ({ name, duration }) => {
   );
 };
 
-export default ServiceItem;
+export default WorkItem;

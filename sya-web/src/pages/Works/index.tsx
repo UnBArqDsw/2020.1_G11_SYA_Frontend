@@ -7,21 +7,21 @@ import { RiCloseCircleFill } from 'react-icons/ri';
 import { ImHourGlass } from 'react-icons/im';
 import { GiTwoCoins } from 'react-icons/gi';
 import Sidebar from '../../components/Sidebar';
-import ServiceItem from '../../components/ServiceItem';
-import ServiceInput from '../../components/EmployeeForm/EmployeeInput';
+import WorkItem from '../../components/WorkItem';
+import WorkInput from '../../components/EmployeeForm/EmployeeInput';
 import Button from '../../components/Button';
 import CheckboxInput from '../../components/CheckboxInput';
 import InputTwo from '../../components/InputTwo';
 
 import {
   Container,
-  ServiceList,
+  WorkList,
   Content,
-  ButtonToNewService,
-  ServiceForm,
+  ButtonToNewWork,
+  WorkForm,
   Card,
   ContentCard,
-  ContentNewServiceInputs
+  ContentNewWorkInputs
 } from './styles';
 
 interface CheckboxOption {
@@ -30,7 +30,7 @@ interface CheckboxOption {
   label: string;
 }
 
-const Service: React.FC = () => {
+const Work: React.FC = () => {
   const [isViewForm, setIsViewForm] = useState(false);
 
   const handleViewForm = useCallback(() => {
@@ -49,18 +49,18 @@ const Service: React.FC = () => {
     <Container>
       <Sidebar />
       <Content>
-        <ServiceList>
-          <ServiceItem name="Cabelo" duration="01:30" />
-          <ServiceItem name="Barba" duration="00:30" />
-          <ServiceItem name="Make" duration="01:30" />
-        </ServiceList>
+        <WorkList>
+          <WorkItem name="Cabelo" duration="01:30" />
+          <WorkItem name="Barba" duration="00:30" />
+          <WorkItem name="Make" duration="01:30" />
+        </WorkList>
 
-        <ButtonToNewService>
+        <ButtonToNewWork>
           <BsPlusCircle color="#fcfcfc" size={60} onClick={handleViewForm} />
-        </ButtonToNewService>
+        </ButtonToNewWork>
 
         {isViewForm && (
-          <ServiceForm>
+          <WorkForm>
             <Card>
               <RiCloseCircleFill
                 color="#FCFCFC"
@@ -76,12 +76,12 @@ const Service: React.FC = () => {
                     <span>
                       <FiAlertCircle color="#FCFcfc" size={50} />
                     </span>
-                    <ServiceInput
+                    <WorkInput
                       name="name_service"
                       placeholder="Nome do Serviço"
                     />
                   </div>
-                  <ContentNewServiceInputs>
+                  <ContentNewWorkInputs>
                     <div>
                       <p>Duração</p>
                       <br></br>
@@ -102,18 +102,18 @@ const Service: React.FC = () => {
                         style={{ marginTop: '0px', width: '100%' }}
                       />
                     </div>
-                  </ContentNewServiceInputs>
+                  </ContentNewWorkInputs>
                   <Button style={{ width: '100%' }} type="submit">
                     Salvar
                   </Button>
                 </ContentCard>
               </Form>
             </Card>
-          </ServiceForm>
+          </WorkForm>
         )}
       </Content>
     </Container>
   );
 };
 
-export default Service;
+export default Work;

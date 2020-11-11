@@ -16,14 +16,14 @@ export const Content = styled.div`
   border-radius: 30px;
 `;
 
-export const ServiceList = styled.div`
+export const WorkList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-export const ButtonToNewService = styled.div`
+export const ButtonToNewWork = styled.div`
   position: fixed;
   outline: none;
   cursor: pointer;
@@ -32,7 +32,7 @@ export const ButtonToNewService = styled.div`
   right: 50px;
 `;
 
-export const ServiceForm = styled.div`
+export const WorkForm = styled.div`
   display: flex;
   position: fixed;
   align-items: center;
@@ -91,7 +91,7 @@ export const ContentCard = styled.div`
   }
 `;
 
-export const ContentNewServiceInputs = styled.div`
+export const ContentNewWorkInputs = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
