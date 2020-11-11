@@ -15,7 +15,6 @@ import Button from '../../components/Button';
 import InputTwo from '../../components/InputTwo';
 import api from '../../services/api';
 import { useToast } from '../../hooks/toast';
-import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -45,7 +44,6 @@ const Work: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const { addToast } = useToast();
-  const { user } = useAuth();
   const [isViewForm, setIsViewForm] = useState(false);
   const [works, setWorks] = useState<Work[]>([]);
 

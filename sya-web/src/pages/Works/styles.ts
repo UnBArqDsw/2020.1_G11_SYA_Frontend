@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
@@ -23,7 +22,29 @@ export const WorkList = styled.div`
   justify-content: center;
   overflow-y: auto;
   height: 90%;
-  padding-top: 50px;
+  margin-top: 37px;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #fcfcfc;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px #363636;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #363636;
+    border-radius: 10px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #000;
+  }
 `;
 
 export const ButtonToNewWork = styled.div`
