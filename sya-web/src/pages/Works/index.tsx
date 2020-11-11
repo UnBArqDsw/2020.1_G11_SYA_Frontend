@@ -25,6 +25,8 @@ import {
   Card,
   ContentCard,
   ContentNewWorkInputs,
+  Duration,
+  Value,
 } from './styles';
 
 interface Work {
@@ -58,9 +60,9 @@ const Work: React.FC = () => {
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
-          name: Yup.string().required(),
-          duration: Yup.string().required(),
-          price: Yup.string().required(),
+          name: Yup.string().required('Nome necessário'),
+          duration: Yup.string().required('Duração necessária'),
+          price: Yup.string().required('Preço necessário'),
         });
 
         await schema.validate(data, {
@@ -81,7 +83,6 @@ const Work: React.FC = () => {
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
-          console.log(err);
           formRef.current?.setErrors(errors);
 
           return;
@@ -89,8 +90,8 @@ const Work: React.FC = () => {
 
         addToast({
           type: 'error',
-          title: 'Erro na ao resetar senha',
-          description: 'Ocorreu um erro ao resetar sua senha, tente novamente.',
+          title: 'Erro ao criar serviço',
+          description: 'Ocorreu um erro ao criar o serviço, tente novamente',
         });
       }
     },
@@ -132,7 +133,7 @@ const Work: React.FC = () => {
                 size={33}
                 onClick={handleUnviewForm}
               />
-              <Form onSubmit={handleSubmit}>
+              <Form ref={formRef} onSubmit={handleSubmit}>
                 <ContentCard>
                   <div>
                     <span>
@@ -141,7 +142,7 @@ const Work: React.FC = () => {
                     <WorkInput name="name" placeholder="Nome do Serviço" />
                   </div>
                   <ContentNewWorkInputs>
-                    <div>
+                    <Duration>
                       <p>Duração</p>
                       <br />
                       <InputTwo
@@ -150,17 +151,17 @@ const Work: React.FC = () => {
                         placeholder="07:00"
                         style={{ marginTop: '0px', width: '100%' }}
                       />
-                    </div>
-                    <div>
+                    </Duration>
+                    <Value>
                       <p>Valor</p>
                       <br />
                       <InputTwo
                         name="price"
                         icon={GiTwoCoins}
-                        placeholder="120,00"
+                        placeholder="10,00"
                         style={{ marginTop: '0px', width: '100%' }}
                       />
-                    </div>
+                    </Value>
                   </ContentNewWorkInputs>
                   <Button style={{ width: '100%' }} type="submit">
                     Salvar

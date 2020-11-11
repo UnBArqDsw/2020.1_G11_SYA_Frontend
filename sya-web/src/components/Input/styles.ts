@@ -43,8 +43,6 @@ export const Container = styled.div<ContainerProps>`
       color: #fcfcfc;
     `}
 
-
-
   input {
     flex: 1;
     background: transparent;

@@ -73,14 +73,15 @@ export const Card = styled.div`
   position: relative;
   align-items: center;
   justify-content: center;
-  width: 40%;
-  height: 40%;
-  padding: 38px 50px 0px 50px;
+  width: 25%;
+  min-height: 40%;
+  padding: 40px 50px 20px 50px;
   z-index: 16;
   background: #141212;
   border: 4px solid #fcfcfc;
   border-radius: 15px;
   overflow-y: auto;
+  overflow-x: hidden;
 
   > svg {
     position: absolute;
@@ -94,46 +95,37 @@ export const ContentCard = styled.div`
   display: flex;
   flex-direction: column;
 
-  button {
-    font-size: 22px !important;
-    padding: 0 8px;
-  }
-
   > div {
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 25px;
+
+    input {
+      max-width: 92%;
+    }
 
     p {
       font-size: 22px;
     }
-  }
-
-  div {
-    margin-top: 10px;
-    margin-bottom: 10px;
   }
 `;
 
 export const ContentNewWorkInputs = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   width: 100%;
+  margin-top: 10px;
+`;
 
-  div:first-child {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-  }
+export const Duration = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-right: 25px;
+`;
 
-  div:nth-child(2n) {
-    display: flex;
-    flex-direction: column;
-    width: 40%;
-  }
-
-  input {
-    width: 100%;
-  }
+export const Value = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 25px;
 `;

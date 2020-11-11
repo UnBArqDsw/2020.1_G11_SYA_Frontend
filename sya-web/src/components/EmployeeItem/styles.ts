@@ -24,7 +24,7 @@ export const Card = styled.div`
   cursor: pointer;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 2px;
     height: 70px;
@@ -48,7 +48,6 @@ export const Card = styled.div`
     margin-top: 10px;
     font-size: 18px;
   }
-
 `;
 
 export const Archive = styled.div`
