@@ -1,15 +1,10 @@
 import styled from 'styled-components';
-import { shade } from 'polished';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
+  margin: 50px 75px;
   padding-top: 71px;
-
-  a {
-    text-decoration: none;
-  }
 `;
 
 export const Item = styled.div`
@@ -27,33 +22,31 @@ export const Item = styled.div`
     color: #fcfcfc;
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 22px;
     transition: all 0.2s;
   }
 
   div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    border: 1px solid #fcfcfc;
+    border: 3px solid #fcfcfc;
     height: 56px;
     width: 56px;
     padding: 13px;
     transition: all 0.2s;
   }
 
-  img, svg {
-    width: 100%;
-    fill: #898989 !important;
-    transition: all 0.2s;
-  }
-
   &:hover {
     color: #898989;
     div {
-      border: 1px solid #898989;
+      border: 3px solid #898989;
     }
 
-    img, svg{
+    img,
+    svg {
       fill: #898989;
     }
 

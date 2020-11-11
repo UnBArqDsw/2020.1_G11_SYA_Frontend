@@ -12,7 +12,7 @@ export const Container = styled.div<ContainerProps>`
   background: #141212;
   border-radius: 10px;
   padding: 16px;
-  width: 30%;
+  width: 100%;
 
   & + div {
     margin-left: 15px;
@@ -47,7 +47,7 @@ export const Container = styled.div<ContainerProps>`
     background: transparent;
     border: 0;
     color: #fcfcfc;
-    width: 30%;
+    width: 100%;
 
     &::placeholder {
       color: #898989;
@@ -62,7 +62,6 @@ export const Container = styled.div<ContainerProps>`
 export const Error = styled(Tooltip)`
   height: 20px;
   margin-left: 16px;
-
   svg {
     margin: 0;
   }
