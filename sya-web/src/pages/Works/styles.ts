@@ -21,6 +21,9 @@ export const WorkList = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
+  height: 90%;
+  padding-top: 50px;
 `;
 
 export const ButtonToNewWork = styled.div`
@@ -99,7 +102,7 @@ export const ContentNewWorkInputs = styled.div`
 
   div:first-child {
     display: flex;
-  flex-direction: column;
+    flex-direction: column;
     width: 40%;
   }
 

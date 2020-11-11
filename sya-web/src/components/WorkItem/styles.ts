@@ -24,7 +24,7 @@ export const Card = styled.div`
   cursor: pointer;
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     width: 2px;
     height: 70px;
@@ -38,16 +38,20 @@ export const Card = styled.div`
     margin-right: 15px;
   }
 
-  p {
-    padding-bottom: 12px;
-    font-size: 24px;
-  }
+  > div {
+    > p {
+      font-size: 24px;
+    }
 
+    p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  }
   p:last-child {
-    margin-top: 10px;
+    margin-bottom: 10px;
     font-size: 18px;
   }
-
 `;
 
 export const Archive = styled.div`
@@ -66,13 +70,9 @@ export const Duration = styled.div`
   flex-direction: row;
   right: 0;
 
-
   p {
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right:25px;
-    margin-left:15px;
-    padding-top: 2px;
+    margin-right: 25px;
+    margin-left: 15px;
     font-size: 10px;
   }
 
