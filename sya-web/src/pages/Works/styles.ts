@@ -19,7 +19,6 @@ export const WorkList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   overflow-y: auto;
   height: 90%;
   margin-top: 37px;

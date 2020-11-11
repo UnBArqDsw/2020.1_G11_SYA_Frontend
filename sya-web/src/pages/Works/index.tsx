@@ -80,6 +80,7 @@ const Work: React.FC = () => {
           title: 'Serviço criado com sucesso!',
           description: 'Serviço criado, o trabalho engrandece o homem!',
         });
+        setIsViewForm(false);
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
