@@ -12,7 +12,8 @@ import {
   CompanyProfile,
   Row,
   Column,
-  Topic
+  Topic,
+  SubContainerMobile
 } from './styles';
 
 import Input from '../../components/Input';
@@ -71,16 +72,75 @@ const ClientLink: React.FC = () => {
   const updateWidthAndHeight = () => {
     setWidth(window.innerWidth);
   };
+
+  console.log(typeof width);
+
   if(width <= 480){
     return (
-      <Container>
-        Largura: { width } <br />
-        Sou MENOR e igual  480
-      </Container>
+      <Form style={{width: "100%"}} onSubmit={() => console.log('Oi')}>
+        <Container widthProp={ width }>
+          <SubContainerMobile>
+            <Logo>
+              <FiUser size={50} />
+            </Logo>
+            <p>{ companyName }</p>
+
+            <Topic>
+              Meu Perfil
+            </Topic>
+
+            <Input name="name" icon={FiUser} placeholder="Nome" />
+            <Input name="phone" icon={FiPhone} placeholder="Telefone" />
+            <Input name="email" icon={FiMail} placeholder="E-mail" />
+
+            <Topic>
+              Serviço
+            </Topic>
+
+            <InputSelect name="work" options={ options_work } icon={MdBusinessCenter} placeholder="Serviço" />
+
+            <Topic>
+              Funcionário
+            </Topic>
+
+            <InputSelect name="employee" options={ options_employee } icon={FiUser} placeholder="Funcionários" />
+
+
+            <Topic>
+              Calendário
+            </Topic>
+
+            Colocar calendário aqui com os dias para selecionar com o input do tipo "Radio",
+            que só pode ser selecionado 1 por vez, ou seja, só pode selecionar 1 dia do calendário.
+
+            <Topic>
+              Manhã
+            </Topic>
+
+            <CheckboxInput name="hour" options={manhaOptions} />
+
+            <Topic>
+              Tarde
+            </Topic>
+
+            <CheckboxInput name="hour" options={tardeOptions} />
+
+            <Topic>
+              Noite
+            </Topic>
+
+            <CheckboxInput name="hour" options={noiteOptions} />
+
+            <Button style={{ width: '301px' }} type="submit">
+              Confirmar Agendamento
+            </Button>
+          </SubContainerMobile>
+        </Container>
+      </Form>
     );
   } else {
     return (
-      <Container>
+      <Container widthProp={ width }>
         <Form style={{width: "100%"}} onSubmit={() => console.log('Oi')}>
           <Column>
             <Row>

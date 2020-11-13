@@ -1,14 +1,63 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { shade } from 'polished';
 
-export const Container = styled.div`
+interface ContainerProps {
+  widthProp: number;
+}
+
+export const Container = styled.div<ContainerProps>`
+
+  ${(props) =>
+    props.widthProp > 480 &&
+    css`
+        display: flex;
+        flex-direction: column;
+        height: 94vh;
+        padding: 30px;
+        margin: 25px;
+        border: 2px solid #fcfcfc;
+        border-radius: 30px;
+    `}
+
+  ${(props) =>
+    props.widthProp <= 480 &&
+    css`
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 94vh;
+      padding: 40px 20px;
+      margin: 25px;
+      border: 2px solid #fcfcfc;
+      border-radius: 30px;
+  `}
+`;
+
+export const SubContainerMobile = styled.div`
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
+
+
   display: flex;
   flex-direction: column;
-  height: 94vh;
-  padding: 30px;
-  margin: 25px;
-  border: 2px solid #fcfcfc;
-  border-radius: 30px;
+  align-items: center;
+
+  > p {
+    margin-top: 18px;
+    font-size: 24px;
+    max-width: 100%;
+    font-weight: 500;
+    line-height: 29px;
+    color: #FCFCFC;
+  }
+
+  button:last-child {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
 `;
 
 export const Topic = styled.div`
