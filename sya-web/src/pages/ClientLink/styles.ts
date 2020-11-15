@@ -5,6 +5,53 @@ interface ContainerProps {
   widthProp: number;
 }
 
+
+export const CalendarContainer = styled.div`
+  width: 100%;
+  position: relative;
+  display:flex;
+  justify-content:center;
+  padding-top: 15px;
+`;
+
+export const Aste = styled.div`
+  position: absolute;
+  background: #fcfcfc;
+  width: 12px;
+  height: 31px;
+  border-radius: 30px;
+  &:first-child{
+    top: 0;
+    left: 30%;
+  }
+  &:nth-child(2){
+    top: 0;
+    left: 50%;
+  }
+  &:nth-child(3){
+    top: 0;
+    right: 30%;
+  }
+`;
+
+export const CalendarInput = styled.input`
+  background: red;
+  width: 100%;
+
+`;
+
+export const Calendar = styled.div`
+  background: #000;
+  border-radius: 30px;
+  padding: 25px 30px;
+  table {
+    th, td {
+      text-align: center;
+      padding: 5px 3px;
+    }
+  }
+`;
+
 export const Container = styled.div<ContainerProps>`
 
   ${(props) =>
@@ -243,3 +290,4 @@ export const SecondColumn = styled.div`
     align-items: center;
   }
 `;
+

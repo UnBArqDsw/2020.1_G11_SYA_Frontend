@@ -13,7 +13,11 @@ import {
   Row,
   Column,
   Topic,
-  SubContainerMobile
+  SubContainerMobile,
+  CalendarContainer,
+  Aste,
+  Calendar,
+  CalendarInput
 } from './styles';
 
 import Input from '../../components/Input';
@@ -110,8 +114,64 @@ const ClientLink: React.FC = () => {
               Calendário
             </Topic>
 
-            Colocar calendário aqui com os dias para selecionar com o input do tipo "Radio",
-            que só pode ser selecionado 1 por vez, ou seja, só pode selecionar 1 dia do calendário.
+
+            <CalendarContainer>
+              <Aste></Aste>
+              <Aste></Aste>
+              <Aste></Aste>
+              <Calendar>
+                  <table>
+                    <thead>
+                      <th>Seg</th>
+                      <th>Ter</th>
+                      <th>Qua</th>
+                      <th>Qui</th>
+                      <th>Sex</th>
+                      <th>Sab</th>
+                      <th>Dom</th>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </Calendar>
+            </CalendarContainer>
+
 
             <Topic>
               Manhã
@@ -176,8 +236,62 @@ const ClientLink: React.FC = () => {
                 Calendário
               </Topic>
 
-              Colocar calendário aqui com os dias para selecionar com o input do tipo "Radio",
-              que só pode ser selecionado 1 por vez, ou seja, só pode selecionar 1 dia do calendário.
+              <CalendarContainer>
+                <Aste></Aste>
+                <Aste></Aste>
+                <Aste></Aste>
+                <Calendar>
+                    <table>
+                      <thead>
+                        <th>Seg</th>
+                        <th>Ter</th>
+                        <th>Qua</th>
+                        <th>Qui</th>
+                        <th>Sex</th>
+                        <th>Sab</th>
+                        <th>Dom</th>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                        </tr>
+                        <tr>
+                          <td>1</td>
+                          <td>2</td>
+                          <td>3</td>
+                          <td>4</td>
+                          <td>5</td>
+                          <td>6</td>
+                          <td>7</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                </Calendar>
+              </CalendarContainer>
 
               <Topic>
                 Manhã
