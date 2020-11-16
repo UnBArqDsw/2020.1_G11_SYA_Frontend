@@ -11,6 +11,7 @@ import Employee from '../pages/Employee';
 import ClientLink from '../pages/ClientLink';
 import Work from '../pages/Works';
 
+import SignUp from '../pages/SignUp';
 
 const Routes: React.FC = () => (
   <Switch>
@@ -19,6 +20,8 @@ const Routes: React.FC = () => (
     <Route path="/works" component={Work}  />
     <Route path="/employees" component={Employee}  />
     <Route path="/client" component={ClientLink}  />
+
+    <Route path="/signUp" component={SignUp} />
 
     {/* <Route path="/dashboard" component={Dashboard} isPrivate /> */}
   </Switch>
