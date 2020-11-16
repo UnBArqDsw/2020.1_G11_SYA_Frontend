@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { BsPlusCircle } from 'react-icons/bs';
 import { FiUser } from 'react-icons/fi';
 import { Form } from '@unform/web';
@@ -8,6 +8,8 @@ import EmployeeItem from '../../components/EmployeeItem';
 import EmployeeInput from '../../components/EmployeeForm/EmployeeInput';
 import Button from '../../components/Button';
 import CheckboxInput from '../../components/CheckboxInput';
+import api from '../../services/api';
+import { useAuth } from '../../hooks/auth';
 
 import {
   Container,
@@ -31,6 +33,7 @@ const Employee: React.FC = () => {
     { id: '1', value: 'cabelo', label: 'Cabelo' },
     { id: '2', value: 'make', label: 'Maquiagem' },
   ];
+  const [employees, setEmployees] = useState([]);
   const [isViewForm, setIsViewForm] = useState(false);
 
   const handleViewForm = useCallback(() => {
@@ -85,14 +88,7 @@ const Employee: React.FC = () => {
                     <p>Serviços Prestados</p>
                   </div>
                   <Check>
-                    {checkboxOptions.map((option, index) => (
-                      <CheckboxInput
-                        key={option.id}
-                        index={index}
-                        name={`services.${option.value}`}
-                        option={option}
-                      />
-                    ))}
+                    <CheckboxInput name="services" options={checkboxOptions} />
                   </Check>
                   <Button style={{ width: '100%' }} type="submit">
                     Salvar

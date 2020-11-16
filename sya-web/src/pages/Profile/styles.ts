@@ -141,6 +141,26 @@ export const FirstColumn = styled.div`
 export const SecondColumn = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin-top: 95px;
   width: 440px;
+
+  p {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    margin: 0 10px;
+  }
+
+  h1 {
+    margin-top: 25px;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+  }
 `;

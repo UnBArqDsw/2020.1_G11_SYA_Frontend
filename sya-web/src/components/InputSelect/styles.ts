@@ -45,7 +45,7 @@ export const Container = styled.div<ContainerProps>`
 
 
 
-  input {
+  select {
     flex: 1;
     background: transparent;
     border: 0;

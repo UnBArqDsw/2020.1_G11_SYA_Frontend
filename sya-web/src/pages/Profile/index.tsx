@@ -1,6 +1,7 @@
 import React from 'react';
 import { FiArrowLeft, FiPower, FiCamera, FiMail, FiUser } from 'react-icons/fi';
 import { AiFillSchedule, AiOutlineShopping, AiFillStar } from 'react-icons/ai';
+import { ImHourGlass } from 'react-icons/im';
 import { Form } from '@unform/web';
 import {
   Container,
@@ -13,6 +14,7 @@ import {
 } from './styles';
 
 import Input from '../../components/Input';
+import InputTwo from '../../components/InputTwo';
 import Button from '../../components/Button';
 import WeekCard from '../../components/WeekCard';
 
@@ -47,18 +49,13 @@ const Profile: React.FC = () => {
 
               <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-              <Input
-                name="changeEmail"
-                icon={FiMail}
-                placeholder="Trocar e-mail"
-              />
+              <Input name="cpf" icon={AiFillSchedule} placeholder="CPF" />
+
               <h1>Dias de Funcionamento</h1>
               <WeekCard />
             </FirstColumn>
 
             <SecondColumn>
-              <Input name="cpf" icon={AiFillSchedule} placeholder="CPF" />
-
               <Input
                 name="business_name"
                 icon={AiFillStar}
@@ -70,6 +67,27 @@ const Profile: React.FC = () => {
                 icon={AiOutlineShopping}
                 placeholder="Área de atuação"
               />
+
+              <h1>Presto Serviço das: </h1>
+              <div>
+                <div style={{ marginRight: '10%', width: '30% !important' }}>
+                  <InputTwo
+                    name="initial_hour"
+                    icon={ImHourGlass}
+                    placeholder="07:00"
+                    style={{ marginTop: '0px', width: '100%' }}
+                  />
+                </div>
+                <p>às</p>
+                <div style={{ marginLeft: '10%', width: '30% !important' }}>
+                  <InputTwo
+                    name="finish_hour"
+                    icon={ImHourGlass}
+                    placeholder="18:00"
+                    style={{ marginTop: '0px', width: '100%' }}
+                  />
+                </div>
+              </div>
             </SecondColumn>
           </Form>
           <Button style={{ width: '301px' }} type="submit">
