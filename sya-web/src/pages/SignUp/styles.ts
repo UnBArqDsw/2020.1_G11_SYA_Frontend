@@ -5,7 +5,6 @@ import { shade } from 'polished';
 import signUpBackground from '../../assets/signInBackground.png';
 
 export const Container = styled.div`
-  height: 94vh;
   flex-direction: row;
   display: flex;
 `;
@@ -14,18 +13,16 @@ export const SubContainer = styled.div`
   flex-direction: column;
   display: flex;
   width: 79%;
-  height: 94vh;
+  height: 100vh;
   overflow-y: auto;
   align-items: center;
   position: relative;
-`
+`;
 
 export const Background = styled.div`
   flex: 1;
   background: url(${signUpBackground}) no-repeat center;
   background-size: cover;
-  position: relative;
-  width: 25%;
 `;
 
 export const Content = styled.div`
@@ -76,7 +73,7 @@ export const Row = styled.div`
   }
 `;
 
-export const Column= styled.div`
+export const Column = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -135,19 +132,3 @@ export const Column= styled.div`
     }
   }
 `;
-
-export const WrapPassword = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  max-width: 400px;
-
-  input {
-    width: 90px;
-  }
-
-  #passwordSepararion{
-    width: 65px;
-  }
-`;
-

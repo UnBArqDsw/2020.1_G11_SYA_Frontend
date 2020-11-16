@@ -16,10 +16,10 @@ import SignUp from '../pages/SignUp';
 const Routes: React.FC = () => (
   <Switch>
     <Route path="/" exact component={SignIn} />
-    <Route path="/profile" component={Profile}  />
-    <Route path="/works" component={Work}  />
-    <Route path="/employees" component={Employee}  />
-    <Route path="/client" component={ClientLink}  />
+    <Route path="/profile" component={Profile} isPrivate />
+    <Route path="/works" component={Work} isPrivate />
+    <Route path="/employees" component={Employee} isPrivate />
+    <Route path="/client" component={ClientLink} />
 
     <Route path="/signUp" component={SignUp} />
 
