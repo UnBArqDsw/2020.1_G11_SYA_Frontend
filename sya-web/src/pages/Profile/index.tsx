@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useRef, useCallback } from 'react';
-import { format } from 'date-fns';
 import { FiArrowLeft, FiPower, FiCamera, FiMail, FiUser } from 'react-icons/fi';
 import { IoIosBusiness } from 'react-icons/io';
 import { AiFillSchedule, AiOutlineShopping, AiFillStar } from 'react-icons/ai';
@@ -7,11 +6,10 @@ import { ImHourGlass } from 'react-icons/im';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Input from '../../components/Input';
 import InputTwo from '../../components/InputTwo';
 import Button from '../../components/Button';
-import WeekCard from '../../components/WeekCard';
 import getValidationErrors from '../../utils/getValidationErrors';
 import api from '../../services/api';
 import { useToast } from '../../hooks/toast';
@@ -39,6 +37,7 @@ interface ProfileData {
 const Profile: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { addToast } = useToast();
+  const history = useHistory();
 
   const { user, updateUser, signOut } = useAuth();
 
@@ -47,25 +46,40 @@ const Profile: React.FC = () => {
       try {
         formRef.current?.setErrors({});
         const schema = Yup.object().shape({
-          name: Yup.string().required('Nome necessário'),
-          email: Yup.string().email().required('Duração necessária'),
-          cpf: Yup.string().required('CPF necessário'),
-          business_area: Yup.string().required('CPF necessário'),
-          initial_hour: Yup.string().required('CPF necessário'),
+          name: Yup.string(),
+          email: Yup.string().email(),
+          business_area: Yup.string(),
+          business_name: Yup.string(),
+          initial_hour: Yup.string(),
+          finish_hour: Yup.string(),
         });
 
         await schema.validate(data, {
           abortEarly: false,
         });
 
+        const response = await api.put('/profile', {
+          name: data.name,
+          email: data.email,
+          business_area: data.business_area,
+          business_name: data.business_name,
+          initial_hour: data.initial_hour,
+          finish_hour: data.finish_hour,
+        });
+
+        updateUser(response.data);
+        history.push('/dashboard');
+
         addToast({
           type: 'success',
-          title: 'Serviço criado com sucesso!',
-          description: 'Serviço criado, o trabalho engrandece o homem!',
+          title: 'Informações alteradas com sucesso!',
+          description:
+            'Suas informações foram alteradas, cheque e confira se está tudo certo!',
         });
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
+
           formRef.current?.setErrors(errors);
 
           return;
@@ -78,7 +92,7 @@ const Profile: React.FC = () => {
         });
       }
     },
-    [addToast]
+    [addToast, history, updateUser]
   );
 
   const handleAvatarChange = useCallback(
@@ -130,16 +144,16 @@ const Profile: React.FC = () => {
       <Break>
         <Content>
           <Form
+            ref={formRef}
             initialData={{
               name: user.name,
               email: user.email,
               cpf: user.cpf,
               business_area: user.business_area,
               business_name: user.business_name,
-              initial_hour: format(Date.parse(user.initial_hour), 'H:mm'),
-              finish_hour: format(Date.parse(user.finish_hour), 'H:mm'),
+              initial_hour: user.initial_hour,
+              finish_hour: user.finish_hour,
             }}
-            ref={formRef}
             onSubmit={handleSubmit}
           >
             <FirstColumn>
@@ -149,7 +163,12 @@ const Profile: React.FC = () => {
 
               <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-              <Input name="cpf" icon={AiFillSchedule} placeholder="CPF" />
+              <Input
+                name="cpf"
+                icon={AiFillSchedule}
+                placeholder="CPF"
+                readOnly
+              />
             </FirstColumn>
 
             <SecondColumn>
@@ -185,11 +204,19 @@ const Profile: React.FC = () => {
                   />
                 </div>
               </div>
+              <Button
+                style={{
+                  position: 'relative',
+                  right: '250px',
+                  top: '55px',
+                  width: '301px',
+                }}
+                type="submit"
+              >
+                Confirmar mudanças
+              </Button>
             </SecondColumn>
           </Form>
-          <Button style={{ width: '301px' }} type="submit">
-            Confirmar mudanças
-          </Button>
         </Content>
       </Break>
     </Container>

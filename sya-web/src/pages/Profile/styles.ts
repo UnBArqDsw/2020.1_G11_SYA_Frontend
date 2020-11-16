@@ -53,7 +53,7 @@ export const Photo = styled.div`
 export const AvatarInput = styled.div`
   position: relative;
   align-self: center;
-  top: 100px;
+  top: 60px;
 
   span {
     display: flex;

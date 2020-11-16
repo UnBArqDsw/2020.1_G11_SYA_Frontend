@@ -19,14 +19,27 @@ export const ProfileAvatar = styled.div`
   justify-content: center;
   align-self: center;
   top: 74px;
-
-  #userProfileAvatar {
-    width: 160px;
-    height: 160px;
+  img {
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     margin: 0 auto;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
     transition: all 0.2s;
+  }
+  span {
+    display: flex;
+    border-radius: 50%;
+    border: 4px solid #fcfcfc;
+    svg {
+      width: 200px;
+      height: 200px;
+
+      padding: 50px;
+    }
+  }
+
+  #userProfileAvatar {
   }
 
   a {
