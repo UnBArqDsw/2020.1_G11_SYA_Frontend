@@ -1,10 +1,13 @@
-import React, { useRef, useCallback } from 'react';
+import React, { ChangeEvent, useRef, useCallback } from 'react';
+import { format } from 'date-fns';
 import { FiArrowLeft, FiPower, FiCamera, FiMail, FiUser } from 'react-icons/fi';
+import { IoIosBusiness } from 'react-icons/io';
 import { AiFillSchedule, AiOutlineShopping, AiFillStar } from 'react-icons/ai';
 import { ImHourGlass } from 'react-icons/im';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 import Input from '../../components/Input';
 import InputTwo from '../../components/InputTwo';
 import Button from '../../components/Button';
@@ -37,7 +40,7 @@ const Profile: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
   const { addToast } = useToast();
 
-  const { user, updateUser } = useAuth();
+  const { user, updateUser, signOut } = useAuth();
 
   const handleSubmit = useCallback(
     async (data: ProfileData) => {
@@ -47,6 +50,8 @@ const Profile: React.FC = () => {
           name: Yup.string().required('Nome necessário'),
           email: Yup.string().email().required('Duração necessária'),
           cpf: Yup.string().required('CPF necessário'),
+          business_area: Yup.string().required('CPF necessário'),
+          initial_hour: Yup.string().required('CPF necessário'),
         });
 
         await schema.validate(data, {
@@ -75,23 +80,50 @@ const Profile: React.FC = () => {
     },
     [addToast]
   );
+
+  const handleAvatarChange = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files) {
+        const data = new FormData();
+        data.append('avatar', e.target.files[0]);
+
+        api.patch('/users/avatar', data).then((response) => {
+          updateUser(response.data);
+
+          addToast({
+            type: 'success',
+            title: 'Avatar atualizado',
+          });
+        });
+      }
+    },
+    [addToast, updateUser]
+  );
   return (
     <Container>
       <header>
         <div>
-          <FiArrowLeft />
-          <FiPower />
+          <Link to="/dashboard">
+            <FiArrowLeft />
+          </Link>
+
+          <button type="button" onClick={signOut}>
+            <FiPower />
+          </button>
         </div>
       </header>
       <Photo>
         <AvatarInput>
-          <img
-            src="https://avatars1.githubusercontent.com/u/48137972?s=460&u=7471585d946d915235ff9532f65a4082788abb06&v=4"
-            alt="Daniel"
-          />
+          {user.avatar_url ? (
+            <img src={user.avatar_url} alt={user.name} />
+          ) : (
+            <span>
+              <IoIosBusiness color="#FCFcfc" />
+            </span>
+          )}
           <label htmlFor="avatar">
             <FiCamera />
-            <input type="file" id="avatar" onChange={() => console.log('Oi')} />
+            <input type="file" id="avatar" onChange={handleAvatarChange} />
           </label>
         </AvatarInput>
       </Photo>
@@ -104,6 +136,8 @@ const Profile: React.FC = () => {
               cpf: user.cpf,
               business_area: user.business_area,
               business_name: user.business_name,
+              initial_hour: format(Date.parse(user.initial_hour), 'H:mm'),
+              finish_hour: format(Date.parse(user.finish_hour), 'H:mm'),
             }}
             ref={formRef}
             onSubmit={handleSubmit}
@@ -116,9 +150,6 @@ const Profile: React.FC = () => {
               <Input name="email" icon={FiMail} placeholder="E-mail" />
 
               <Input name="cpf" icon={AiFillSchedule} placeholder="CPF" />
-
-              <h1>Dias de Funcionamento</h1>
-              <WeekCard />
             </FirstColumn>
 
             <SecondColumn>
