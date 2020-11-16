@@ -20,6 +20,7 @@ export const Aste = styled.div`
   width: 12px;
   height: 31px;
   border-radius: 30px;
+  z-index: 5;
   &:first-child{
     top: 0;
     left: 30%;
@@ -85,6 +86,32 @@ export const SubContainerMobile = styled.div`
   width: 100%;
   overflow-y: auto;
 
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  > p {
+    margin-top: 18px;
+    font-size: 24px;
+    max-width: 100%;
+    font-weight: 500;
+    line-height: 29px;
+    color: #FCFCFC;
+  }
+
+  button:last-child {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+`;
+
+export const SubContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  overflow-y: auto;
 
   display: flex;
   flex-direction: column;

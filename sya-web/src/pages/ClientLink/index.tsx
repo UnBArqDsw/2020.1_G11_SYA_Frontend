@@ -1,4 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import DatePicker from "react-datepicker";
+import pt from "date-fns/locale/pt";
+
+import "../../assets/css/calendarClientLink.css";
 
 import { FiArrowLeft, FiPower, FiCamera, FiMail, FiUser, FiPhone } from 'react-icons/fi';
 import { AiFillSchedule, AiOutlineShopping, AiFillStar } from 'react-icons/ai';
@@ -13,6 +18,7 @@ import {
   Row,
   Column,
   Topic,
+  SubContainer,
   SubContainerMobile,
   CalendarContainer,
   Aste,
@@ -26,6 +32,7 @@ import InputTwo from '../../components/InputTwo';
 import Button from '../../components/Button';
 import WeekCard from '../../components/WeekCard';
 import CheckboxInput from '../../components/CheckboxInput';
+import { GiConsoleController } from 'react-icons/gi';
 
 interface CheckboxOption {
   id: string;
@@ -77,7 +84,7 @@ const ClientLink: React.FC = () => {
     setWidth(window.innerWidth);
   };
 
-  console.log(typeof width);
+  const [startDate, setStartDate] = React.useState<Date>(new Date());
 
   if(width <= 480){
     return (
@@ -114,8 +121,19 @@ const ClientLink: React.FC = () => {
               Calendário
             </Topic>
 
-
             <CalendarContainer>
+              <Aste></Aste>
+              <Aste></Aste>
+              <Aste></Aste>
+              <DatePicker
+                locale={ pt }
+                selected={ startDate }
+                onChange={ (value: Date) => setStartDate(value) }
+                inline
+              />
+            </CalendarContainer>
+
+            {/* <CalendarContainer>
               <Aste></Aste>
               <Aste></Aste>
               <Aste></Aste>
@@ -170,7 +188,7 @@ const ClientLink: React.FC = () => {
                     </tbody>
                   </table>
               </Calendar>
-            </CalendarContainer>
+            </CalendarContainer> */}
 
 
             <Topic>
@@ -201,124 +219,137 @@ const ClientLink: React.FC = () => {
   } else {
     return (
       <Container widthProp={ width }>
-        <Form style={{width: "100%"}} onSubmit={() => console.log('Oi')}>
-          <Column>
-            <Row>
-              <CompanyProfile>
-                <Logo>
-                  <FiUser size={50} />
-                </Logo>
-                <p>{ companyName }</p>
-              </CompanyProfile>
+        <SubContainer>
+          <Form style={{width: "100%"}} onSubmit={() => console.log('Oi')}>
+            <Column>
+              <Row>
+                <CompanyProfile>
+                  <Logo>
+                    <FiUser size={50} />
+                  </Logo>
+                  <p>{ companyName }</p>
+                </CompanyProfile>
 
-              <Topic>
-                Meu Perfil
-              </Topic>
+                <Topic>
+                  Meu Perfil
+                </Topic>
 
-              <Input name="name" icon={FiUser} placeholder="Nome" />
-              <Input name="phone" icon={FiPhone} placeholder="Telefone" />
-              <Input name="email" icon={FiMail} placeholder="E-mail" />
+                <Input name="name" icon={FiUser} placeholder="Nome" />
+                <Input name="phone" icon={FiPhone} placeholder="Telefone" />
+                <Input name="email" icon={FiMail} placeholder="E-mail" />
 
-              <Topic>
-                Serviço
-              </Topic>
+                <Topic>
+                  Serviço
+                </Topic>
 
-              <InputSelect name="work" options={ options_work } icon={MdBusinessCenter} placeholder="Serviço" />
+                <InputSelect name="work" options={ options_work } icon={MdBusinessCenter} placeholder="Serviço" />
 
-              <Topic>
-                Funcionário
-              </Topic>
+                <Topic>
+                  Funcionário
+                </Topic>
 
-              <InputSelect name="employee" options={ options_employee } icon={FiUser} placeholder="Funcionários" />
-            </Row>
-            <Row>
-              <Topic>
-                Calendário
-              </Topic>
+                <InputSelect name="employee" options={ options_employee } icon={FiUser} placeholder="Funcionários" />
+              </Row>
+              <Row>
+                <Topic>
+                  Calendário
+                </Topic>
 
-              <CalendarContainer>
-                <Aste></Aste>
-                <Aste></Aste>
-                <Aste></Aste>
-                <Calendar>
-                    <table>
-                      <thead>
-                        <th>Seg</th>
-                        <th>Ter</th>
-                        <th>Qua</th>
-                        <th>Qui</th>
-                        <th>Sex</th>
-                        <th>Sab</th>
-                        <th>Dom</th>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>1</td>
-                          <td>2</td>
-                          <td>3</td>
-                          <td>4</td>
-                          <td>5</td>
-                          <td>6</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>2</td>
-                          <td>3</td>
-                          <td>4</td>
-                          <td>5</td>
-                          <td>6</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>2</td>
-                          <td>3</td>
-                          <td>4</td>
-                          <td>5</td>
-                          <td>6</td>
-                          <td>7</td>
-                        </tr>
-                        <tr>
-                          <td>1</td>
-                          <td>2</td>
-                          <td>3</td>
-                          <td>4</td>
-                          <td>5</td>
-                          <td>6</td>
-                          <td>7</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                </Calendar>
-              </CalendarContainer>
+                <CalendarContainer>
+                  <Aste></Aste>
+                  <Aste></Aste>
+                  <Aste></Aste>
+                  <DatePicker
+                    locale={ pt }
+                    selected={ startDate }
+                    onChange={ (value: Date) => setStartDate(value) }
+                    inline
+                  />
+                </CalendarContainer>
+                {/* <CalendarContainer>
+                  <Aste></Aste>
+                  <Aste></Aste>
+                  <Aste></Aste>
+                  <Calendar>
+                      <table>
+                        <thead>
+                          <th>Seg</th>
+                          <th>Ter</th>
+                          <th>Qua</th>
+                          <th>Qui</th>
+                          <th>Sex</th>
+                          <th>Sab</th>
+                          <th>Dom</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </Calendar>
+                </CalendarContainer> */}
 
-              <Topic>
-                Manhã
-              </Topic>
+                <Topic>
+                  Manhã
+                </Topic>
 
-              <CheckboxInput name="hour" options={manhaOptions} />
+                <CheckboxInput name="hour" options={manhaOptions} />
 
-              <Topic>
-                Tarde
-              </Topic>
+                <Topic>
+                  Tarde
+                </Topic>
 
-              <CheckboxInput name="hour" options={tardeOptions} />
+                <CheckboxInput name="hour" options={tardeOptions} />
 
-              <Topic>
-                Noite
-              </Topic>
+                <Topic>
+                  Noite
+                </Topic>
 
-              <CheckboxInput name="hour" options={noiteOptions} />
+                <CheckboxInput name="hour" options={noiteOptions} />
 
-            </Row>
-          </Column>
-          <Column>
-            <Button style={{ width: '301px' }} type="submit">
-              Confirmar Agendamento
-            </Button>
-          </Column>
-        </Form>
+              </Row>
+            </Column>
+            <Column>
+              <Button style={{ width: '301px' }} type="submit">
+                Confirmar Agendamento
+              </Button>
+            </Column>
+          </Form>
+        </SubContainer>
       </Container>
     );
   }
