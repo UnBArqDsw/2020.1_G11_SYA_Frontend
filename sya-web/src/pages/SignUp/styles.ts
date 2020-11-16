@@ -94,24 +94,45 @@ export const Column= styled.div`
     }
 
     > a {
-    color: #fcfcfc;
-    font-size: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-decoration: none;
-    transition: color 0.2s;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    svg {
-      margin-right: 16px;
-    }
+      color: #fcfcfc;
+      font-size: 15px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      text-decoration: none;
+      transition: color 0.2s;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      svg {
+        margin-right: 16px;
+      }
 
-    &:hover {
-      color: ${shade(0.2, '#fcfcfc')};
+      &:hover {
+        color: ${shade(0.2, '#fcfcfc')};
+      }
     }
   }
+
+  #HourInput {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+    max-width: 1640px;
+    margin: 15px auto;
+
+    svg {
+      color: #fcfcfc;
+      width: 25px;
+      height: 25px;
+    }
+
+    p {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 24px;
+    }
   }
 `;
 
