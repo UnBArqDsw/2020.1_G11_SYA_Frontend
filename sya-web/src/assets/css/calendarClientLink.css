@@ -191,6 +191,7 @@
   position: absolute;
   top: 10px;
   width: 0;
+  margin-top: 25px;
   padding: 0;
   border: 0.45rem solid transparent;
   z-index: 1;
