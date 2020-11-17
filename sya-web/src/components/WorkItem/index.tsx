@@ -10,9 +10,10 @@ import { Container, Archive, Card, Duration } from './styles';
 interface WorkProps {
   name: string;
   duration: string;
+  price: string;
 }
 
-const WorkItem: React.FC<WorkProps> = ({ name, duration }) => {
+const WorkItem: React.FC<WorkProps> = ({ name, duration, price }) => {
   return (
     <Container>
       <Card>
@@ -20,11 +21,12 @@ const WorkItem: React.FC<WorkProps> = ({ name, duration }) => {
           <FiAlertCircle color="#FCFcfc" size={50} />
         </span>
         <div>
-          <p>{ name }</p>
+          <p>{name}</p>
+          <p>R$ {price}</p>
         </div>
         <Duration>
           <ImHourGlass color="#FCFcfc" size={18} />
-          <p>{ duration }</p>
+          <p>{duration}</p>
         </Duration>
       </Card>
       <Archive>
