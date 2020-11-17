@@ -1,20 +1,26 @@
 import React from 'react';
 import { FiEdit } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { IoIosBusiness } from 'react-icons/io';
+import { useAuth } from '../../hooks/auth';
 import MenuItem from '../MenuItem';
 import { Container, ProfileAvatar } from './styles';
 
 const Sidebar: React.FC = () => {
+  const { user } = useAuth();
   return (
     <Container>
       <ProfileAvatar>
-        <img
-          id="userProfileAvatar"
-          src="https://avatars0.githubusercontent.com/u/42544693?s=460&u=565def9804de5d4e1b0f6fc609d3cc96fff3fd6e&v=4"
-          alt="Satchel"
-        />
-        <a href="/profile">
+        {user.avatar_url ? (
+          <img src={user.avatar_url} alt={user.name} />
+        ) : (
+          <span>
+            <IoIosBusiness color="#FCFcfc" />
+          </span>
+        )}
+        <Link to="/profile">
           <FiEdit />
-        </a>
+        </Link>
         <p>Pedro Satchel Company</p>
       </ProfileAvatar>
       <MenuItem />

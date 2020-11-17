@@ -5,6 +5,12 @@ interface User {
   id: string;
   name: string;
   email: string;
+  cpf: string;
+  business_area: string;
+  business_name: string;
+  initial_hour: string;
+  finish_hour: string;
+  avatar_url: string;
 }
 
 interface AuthState {

@@ -10,7 +10,7 @@ export const Container = styled.div`
   border: 2px solid #fcfcfc;
   border-radius: 30px;
   header {
-    height: 260px;
+    height: 150px;
     background: transparent;
 
     display: flex;
@@ -23,11 +23,20 @@ export const Container = styled.div`
       width: 100%;
       max-width: 1640px;
       margin: 0 auto;
-
+      button {
+        background: transparent !important;
+        border: none;
+        box-shadow: none;
+      }
       svg {
         color: #fcfcfc;
         width: 45px;
         height: 45px;
+        transition: color 0.2s;
+
+        &:hover {
+          color: ${shade(0.2, '#fcfcfc')};
+        }
       }
     }
   }
@@ -38,13 +47,25 @@ export const Photo = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: -180px auto 0;
+  margin: -200px auto 0;
 `;
 
 export const AvatarInput = styled.div`
   position: relative;
   align-self: center;
-  top: 100px;
+  top: 60px;
+
+  span {
+    display: flex;
+    border-radius: 50%;
+    border: 3px solid #fcfcfc;
+    svg {
+      width: 200px;
+      height: 200px;
+
+      padding: 50px;
+    }
+  }
 
   img {
     width: 200px;
@@ -119,10 +140,6 @@ export const Content = styled.div`
       &:hover {
         color: ${shade(0.2, '#fcfcfc')};
       }
-    }
-
-    Button {
-      background: #fcfcfc;
     }
   }
 `;
