@@ -22,6 +22,11 @@ interface SignUnFormData {
   name: string;
   email: string;
   password: string;
+  business_area: string;
+  business_name: string;
+  finish_hour: any;
+  initial_hour: any;
+  cpf: string;
 }
 
 const SignUp: React.FC = () => {
@@ -50,7 +55,16 @@ const SignUp: React.FC = () => {
           abortEarly: false,
         });
 
-        await api.post('/users', data);
+        await api.post('/users', {
+          password: data.password,
+          finish_hour: new Date(2020, 5, 5, data.finish_hour),
+          initial_hour: new Date(2020, 5, 5, data.initial_hour),
+          name: data.name,
+          email: data.email,
+          business_area: data.business_area,
+          business_name: data.business_name,
+          cpf: data.cpf,
+        });
 
         history.push('/');
 

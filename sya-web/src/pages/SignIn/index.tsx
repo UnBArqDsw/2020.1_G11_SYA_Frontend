@@ -88,10 +88,10 @@ const SignIn: React.FC = () => {
             <Button type="submit">Entrar</Button>
           </Form>
 
-          <a href="login">
+          <Link to="/signup">
             <FiLogIn />
             Criar conta
-          </a>
+          </Link>
         </AnimationContainer>
       </Content>
       <Background />
